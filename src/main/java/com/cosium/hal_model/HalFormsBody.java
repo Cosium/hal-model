@@ -42,12 +42,20 @@ public class HalFormsBody<T> {
     return selfUri().orElseThrow();
   }
 
+  public Map<String, Link> linkByName() {
+    return linkByName;
+  }
+
   public Optional<Link> findLink(String name) {
     return Optional.ofNullable(linkByName.get(name));
   }
 
   public Link requireLink(String name) {
     return findLink(name).orElseThrow();
+  }
+
+  public Map<String, TemplateRepresentation> templateByKey() {
+    return templateByKey;
   }
 
   public Optional<TemplateRepresentation> findTemplate(String key) {

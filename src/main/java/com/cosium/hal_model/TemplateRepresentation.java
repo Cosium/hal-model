@@ -25,7 +25,7 @@ public class TemplateRepresentation {
   private final @Nullable String target;
 
   @JsonCreator
-  public TemplateRepresentation(
+  TemplateRepresentation(
       @JsonProperty("title") @Nullable String title,
       @JsonProperty("method") String method,
       @JsonProperty("contentType") @Nullable String contentType,
@@ -63,6 +63,14 @@ public class TemplateRepresentation {
 
   public Map<String, TemplatePropertyRepresentation> propertyByName() {
     return propertyByName;
+  }
+
+  public Optional<TemplatePropertyRepresentation> findProperty(String name) {
+    return Optional.ofNullable(propertyByName.get(name));
+  }
+
+  public TemplatePropertyRepresentation requireProperty(String name) {
+    return findProperty(name).orElseThrow();
   }
 
   public Optional<String> target() {
