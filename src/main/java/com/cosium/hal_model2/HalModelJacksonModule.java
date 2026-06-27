@@ -1,4 +1,4 @@
-package com.cosium.hal_model;
+package com.cosium.hal_model2;
 
 import tools.jackson.core.Version;
 import tools.jackson.databind.JacksonModule;
@@ -24,7 +24,6 @@ public class HalModelJacksonModule extends JacksonModule {
     context.addDeserializers(
         new SimpleDeserializers()
             .addDeserializer(HalFormsBody.class, new HalFormsBodyDeserializer())
-            .addDeserializer(
-                InlineElementRepresentation.class, new InlineElementRepresentationDeserializer()));
+            .addDeserializer(InlineElement.class, new InlineElementDeserializer()));
   }
 }

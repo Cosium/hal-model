@@ -1,4 +1,4 @@
-package com.cosium.hal_model;
+package com.cosium.hal_model2;
 
 import java.util.Map;
 import org.jspecify.annotations.Nullable;
@@ -11,12 +11,10 @@ import tools.jackson.databind.exc.MismatchedInputException;
 /**
  * @author Réda Housni Alaoui
  */
-class InlineElementRepresentationDeserializer
-    extends ValueDeserializer<InlineElementRepresentation> {
+class InlineElementDeserializer extends ValueDeserializer<InlineElement> {
 
   @Override
-  public @Nullable InlineElementRepresentation deserialize(
-      JsonParser p, DeserializationContext ctxt) {
+  public @Nullable InlineElement deserialize(JsonParser p, DeserializationContext ctxt) {
 
     JsonToken currentToken = p.currentToken();
     if (currentToken == JsonToken.START_OBJECT) {
@@ -26,19 +24,19 @@ class InlineElementRepresentationDeserializer
       if (map == null) {
         return null;
       }
-      return new MapInlineElementRepresentation(map);
+      return new MapInlineElement(map);
     }
     if (currentToken == JsonToken.VALUE_STRING) {
       String value = ctxt.readValue(p, String.class);
       if (value == null) {
         return null;
       }
-      return new StringInlineElementRepresentation(value);
+      return new StringInlineElement(value);
     }
 
     throw MismatchedInputException.from(
         p,
-        InlineElementRepresentation.class,
+        InlineElement.class,
         "%s should have been either %s or %s. But it is not."
             .formatted(currentToken, JsonToken.START_OBJECT, JsonToken.VALUE_STRING));
   }

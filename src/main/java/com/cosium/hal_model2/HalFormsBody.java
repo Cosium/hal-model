@@ -1,4 +1,4 @@
-package com.cosium.hal_model;
+package com.cosium.hal_model2;
 
 import com.damnhandy.uri.template.UriTemplate;
 import java.util.Map;
@@ -12,12 +12,12 @@ public class HalFormsBody<T> {
   private final T representation;
   private final Map<String, Link> linkByName;
   private final @Nullable String selfUri;
-  private final Map<String, TemplateRepresentation> templateByKey;
+  private final Map<String, Template> templateByKey;
 
   public HalFormsBody(
       T representation,
       @Nullable Map<String, Link> linkByName,
-      @Nullable Map<String, TemplateRepresentation> templateByKey) {
+      @Nullable Map<String, Template> templateByKey) {
     this.representation = representation;
     this.linkByName = Optional.ofNullable(linkByName).map(Map::copyOf).orElseGet(Map::of);
     selfUri =
@@ -54,15 +54,15 @@ public class HalFormsBody<T> {
     return findLink(name).orElseThrow();
   }
 
-  public Map<String, TemplateRepresentation> templateByKey() {
+  public Map<String, Template> templateByKey() {
     return templateByKey;
   }
 
-  public Optional<TemplateRepresentation> findTemplate(String key) {
+  public Optional<Template> findTemplate(String key) {
     return Optional.ofNullable(templateByKey.get(key));
   }
 
-  public TemplateRepresentation requireTemplate(String key) {
+  public Template requireTemplate(String key) {
     return findTemplate(key).orElseThrow();
   }
 }

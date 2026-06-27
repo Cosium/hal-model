@@ -13,8 +13,8 @@
   <url>https://github.com/Cosium/hal-model</url>
 
   <groupId>com.cosium.hal_model</groupId>
-  <artifactId>hal-model</artifactId>
-  <version>1.1-SNAPSHOT</version>
+  <artifactId>hal-model2</artifactId>
+  <version>2.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <properties>

@@ -1,4 +1,4 @@
-package com.cosium.hal_model;
+package com.cosium.hal_model2;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -43,7 +43,7 @@ class TemplateTest {
     assertThat(formsBody.requireLink("self").href().expand())
         .isEqualTo("http://localhost/template-assertion-test:put");
     assertThat(formsBody.templateByKey()).containsOnlyKeys("create");
-    TemplateRepresentation create = formsBody.requireTemplate("create");
+    Template create = formsBody.requireTemplate("create");
     assertThat(create.method()).isEqualTo("PUT");
     assertThat(create.title()).contains("Create");
   }
@@ -82,7 +82,7 @@ class TemplateTest {
         .isEqualTo("http://localhost/template-assertion-test:put");
 
     assertThat(formsBody.templateByKey()).containsOnlyKeys("create");
-    TemplateRepresentation create = formsBody.requireTemplate("create");
+    Template create = formsBody.requireTemplate("create");
     assertThat(create.method()).isEqualTo("PUT");
 
     assertThat(create.propertyByName()).containsOnlyKeys("foo");
@@ -123,7 +123,7 @@ class TemplateTest {
         .isEqualTo("http://localhost/template-assertion-test:put");
 
     assertThat(formsBody.templateByKey()).containsOnlyKeys("create");
-    TemplateRepresentation create = formsBody.requireTemplate("create");
+    Template create = formsBody.requireTemplate("create");
     assertThat(create.method()).isEqualTo("PUT");
 
     assertThat(create.propertyByName()).containsOnlyKeys("foo");
@@ -164,7 +164,7 @@ class TemplateTest {
         .isEqualTo("http://localhost/template-assertion-test:put");
 
     assertThat(formsBody.templateByKey()).containsOnlyKeys("create");
-    TemplateRepresentation create = formsBody.requireTemplate("create");
+    Template create = formsBody.requireTemplate("create");
     assertThat(create.method()).isEqualTo("PUT");
 
     assertThat(create.propertyByName()).containsOnlyKeys("foo");
@@ -205,7 +205,7 @@ class TemplateTest {
         .isEqualTo("http://localhost/template-assertion-test:put");
 
     assertThat(formsBody.templateByKey()).containsOnlyKeys("create");
-    TemplateRepresentation create = formsBody.requireTemplate("create");
+    Template create = formsBody.requireTemplate("create");
     assertThat(create.method()).isEqualTo("PUT");
 
     assertThat(create.propertyByName()).containsOnlyKeys("foo");
@@ -246,7 +246,7 @@ class TemplateTest {
         .isEqualTo("http://localhost/template-assertion-test:put");
 
     assertThat(formsBody.templateByKey()).containsOnlyKeys("create");
-    TemplateRepresentation create = formsBody.requireTemplate("create");
+    Template create = formsBody.requireTemplate("create");
     assertThat(create.method()).isEqualTo("PUT");
 
     assertThat(create.propertyByName()).containsOnlyKeys("foo");
@@ -287,7 +287,7 @@ class TemplateTest {
         .isEqualTo("http://localhost/template-assertion-test:put");
 
     assertThat(formsBody.templateByKey()).containsOnlyKeys("create");
-    TemplateRepresentation create = formsBody.requireTemplate("create");
+    Template create = formsBody.requireTemplate("create");
     assertThat(create.method()).isEqualTo("PUT");
 
     assertThat(create.propertyByName()).containsOnlyKeys("foo");
@@ -328,7 +328,7 @@ class TemplateTest {
         .isEqualTo("http://localhost/template-assertion-test:put");
 
     assertThat(formsBody.templateByKey()).containsOnlyKeys("create");
-    TemplateRepresentation create = formsBody.requireTemplate("create");
+    Template create = formsBody.requireTemplate("create");
     assertThat(create.method()).isEqualTo("PUT");
 
     assertThat(create.propertyByName()).containsOnlyKeys("foo");
@@ -369,7 +369,7 @@ class TemplateTest {
         .isEqualTo("http://localhost/template-assertion-test:put");
 
     assertThat(formsBody.templateByKey()).containsOnlyKeys("create");
-    TemplateRepresentation create = formsBody.requireTemplate("create");
+    Template create = formsBody.requireTemplate("create");
     assertThat(create.method()).isEqualTo("PUT");
 
     assertThat(create.propertyByName()).containsOnlyKeys("foo");
@@ -410,7 +410,7 @@ class TemplateTest {
         .isEqualTo("http://localhost/template-assertion-test:put");
 
     assertThat(formsBody.templateByKey()).containsOnlyKeys("create");
-    TemplateRepresentation create = formsBody.requireTemplate("create");
+    Template create = formsBody.requireTemplate("create");
     assertThat(create.method()).isEqualTo("PUT");
 
     assertThat(create.propertyByName()).containsOnlyKeys("foo");
@@ -451,7 +451,7 @@ class TemplateTest {
         .isEqualTo("http://localhost/template-assertion-test:put");
 
     assertThat(formsBody.templateByKey()).containsOnlyKeys("create");
-    TemplateRepresentation create = formsBody.requireTemplate("create");
+    Template create = formsBody.requireTemplate("create");
     assertThat(create.method()).isEqualTo("PUT");
 
     assertThat(create.propertyByName()).containsOnlyKeys("foo");
@@ -492,7 +492,7 @@ class TemplateTest {
         .isEqualTo("http://localhost/template-assertion-test:put");
 
     assertThat(formsBody.templateByKey()).containsOnlyKeys("create");
-    TemplateRepresentation create = formsBody.requireTemplate("create");
+    Template create = formsBody.requireTemplate("create");
     assertThat(create.method()).isEqualTo("PUT");
 
     assertThat(create.propertyByName()).containsOnlyKeys("foo");
@@ -533,7 +533,7 @@ class TemplateTest {
         .isEqualTo("http://localhost/template-assertion-test:put");
 
     assertThat(formsBody.templateByKey()).containsOnlyKeys("create");
-    TemplateRepresentation create = formsBody.requireTemplate("create");
+    Template create = formsBody.requireTemplate("create");
     assertThat(create.method()).isEqualTo("PUT");
 
     assertThat(create.propertyByName()).containsOnlyKeys("foo");
@@ -574,7 +574,7 @@ class TemplateTest {
         .isEqualTo("http://localhost/template-assertion-test:put");
 
     assertThat(formsBody.templateByKey()).containsOnlyKeys("create");
-    TemplateRepresentation create = formsBody.requireTemplate("create");
+    Template create = formsBody.requireTemplate("create");
     assertThat(create.method()).isEqualTo("PUT");
 
     assertThat(create.propertyByName()).containsOnlyKeys("foo");
@@ -608,7 +608,7 @@ class TemplateTest {
     assertThat(formsBody.requireLink("self").href().expand())
         .isEqualTo("http://localhost/template-assertion-test:put");
     assertThat(formsBody.templateByKey()).containsOnlyKeys("create");
-    TemplateRepresentation create = formsBody.requireTemplate("create");
+    Template create = formsBody.requireTemplate("create");
     assertThat(create.method()).isEqualTo("PUT");
     assertThat(create.contentType()).contains("text/plain");
   }
@@ -640,7 +640,7 @@ class TemplateTest {
     assertThat(formsBody.requireLink("self").href().expand())
         .isEqualTo("http://localhost/template-assertion-test:put");
     assertThat(formsBody.templateByKey()).containsOnlyKeys("create");
-    TemplateRepresentation create = formsBody.requireTemplate("create");
+    Template create = formsBody.requireTemplate("create");
     assertThat(create.method()).isEqualTo("PUT");
     assertThat(create.target()).contains("http://localhost/template-assertion-test:put2");
   }
