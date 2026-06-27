@@ -1,4 +1,4 @@
-package com.cosium.hal_model;
+package com.cosium.hal_model2;
 
 import static java.util.Objects.requireNonNull;
 

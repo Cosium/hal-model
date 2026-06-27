@@ -1,4 +1,4 @@
-package com.cosium.hal_model;
+package com.cosium.hal_model2;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -54,11 +54,11 @@ class HalFormsBodyTest {
 
     assertThat(halFormsBody.templateByKey()).containsOnlyKeys("default");
 
-    TemplateRepresentation template = halFormsBody.requireTemplate("default");
+    Template template = halFormsBody.requireTemplate("default");
     assertThat(template.method()).isEqualTo("PUT");
     assertThat(template.propertyByName()).containsOnlyKeys("foo");
 
-    TemplatePropertyRepresentation property = template.propertyByName().get("foo");
+    TemplateProperty property = template.propertyByName().get("foo");
     assertThat(property.type()).isEqualTo("text");
   }
 
@@ -103,11 +103,11 @@ class HalFormsBodyTest {
 
     assertThat(halFormsBody.templateByKey()).containsOnlyKeys("default");
 
-    TemplateRepresentation template = halFormsBody.requireTemplate("default");
+    Template template = halFormsBody.requireTemplate("default");
     assertThat(template.method()).isEqualTo("PUT");
     assertThat(template.propertyByName()).containsOnlyKeys("foo");
 
-    TemplatePropertyRepresentation property = template.propertyByName().get("foo");
+    TemplateProperty property = template.propertyByName().get("foo");
     assertThat(property.type()).isEqualTo("text");
   }
 

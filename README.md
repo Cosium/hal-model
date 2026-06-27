@@ -13,7 +13,7 @@ A java modelisation of HAL (Hypertext Application Language)
     ```xml
     <dependency>
       <groupId>com.cosium.hal_model</groupId>
-      <artifactId>hal-model</artifactId>
+      <artifactId>hal-model2</artifactId>
       <version>${hal-model.version}</version>
     </dependency>
     ```

@@ -1,4 +1,4 @@
-package com.cosium.hal_model;
+package com.cosium.hal_model2;
 
 import static java.util.Objects.requireNonNull;
 
@@ -16,29 +16,29 @@ import org.jspecify.annotations.Nullable;
 /**
  * @author Réda Housni Alaoui
  */
-public class TemplateRepresentation {
+public class Template {
 
   private final @Nullable String title;
   private final String method;
   private final String contentType;
-  private final Map<String, TemplatePropertyRepresentation> propertyByName;
+  private final Map<String, TemplateProperty> propertyByName;
   private final @Nullable String target;
 
   @JsonCreator
-  TemplateRepresentation(
+  Template(
       @JsonProperty("title") @Nullable String title,
       @JsonProperty("method") String method,
       @JsonProperty("contentType") @Nullable String contentType,
-      @JsonProperty("properties") @Nullable List<TemplatePropertyRepresentation> properties,
+      @JsonProperty("properties") @Nullable List<TemplateProperty> properties,
       @JsonProperty("target") @Nullable String target) {
     this.title = title;
     this.method = requireNonNull(method, "Attribute 'method' is missing");
     this.contentType = Optional.ofNullable(contentType).orElse("application/json");
-    Map<String, TemplatePropertyRepresentation> mutablePropertyByName =
+    Map<String, TemplateProperty> mutablePropertyByName =
         Optional.ofNullable(properties).orElseGet(List::of).stream()
             .collect(
                 Collectors.toMap(
-                    TemplatePropertyRepresentation::name,
+                    TemplateProperty::name,
                     Function.identity(),
                     (e1, e2) -> {
                       throw new IllegalStateException(
@@ -61,15 +61,15 @@ public class TemplateRepresentation {
     return contentType;
   }
 
-  public Map<String, TemplatePropertyRepresentation> propertyByName() {
+  public Map<String, TemplateProperty> propertyByName() {
     return propertyByName;
   }
 
-  public Optional<TemplatePropertyRepresentation> findProperty(String name) {
+  public Optional<TemplateProperty> findProperty(String name) {
     return Optional.ofNullable(propertyByName.get(name));
   }
 
-  public TemplatePropertyRepresentation requireProperty(String name) {
+  public TemplateProperty requireProperty(String name) {
     return findProperty(name).orElseThrow();
   }
 

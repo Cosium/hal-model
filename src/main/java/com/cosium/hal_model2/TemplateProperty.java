@@ -1,4 +1,4 @@
-package com.cosium.hal_model;
+package com.cosium.hal_model2;
 
 import static java.util.Objects.requireNonNull;
 
@@ -10,14 +10,14 @@ import org.jspecify.annotations.Nullable;
 /**
  * @author Réda Housni Alaoui
  */
-public class TemplatePropertyRepresentation {
+public class TemplateProperty {
   private final String name;
   private final boolean required;
   private final @Nullable Object value;
   private final String prompt;
   private final @Nullable String regex;
   private final boolean templated;
-  private final @Nullable OptionsRepresentation options;
+  private final @Nullable Options options;
   private final boolean readOnly;
   private final String type;
   private final @Nullable Double max;
@@ -27,14 +27,14 @@ public class TemplatePropertyRepresentation {
   private final @Nullable Double step;
 
   @JsonCreator
-  TemplatePropertyRepresentation(
+  TemplateProperty(
       @JsonProperty("name") String name,
       @JsonProperty("required") @Nullable Boolean required,
       @JsonProperty("value") @Nullable Object value,
       @JsonProperty("prompt") @Nullable String prompt,
       @JsonProperty("regex") @Nullable String regex,
       @JsonProperty("templated") @Nullable Boolean templated,
-      @JsonProperty("options") @Nullable OptionsRepresentation options,
+      @JsonProperty("options") @Nullable Options options,
       @JsonProperty("readOnly") @Nullable Boolean readOnly,
       @JsonProperty("type") @Nullable String type,
       @JsonProperty("max") @Nullable Double max,
@@ -110,7 +110,7 @@ public class TemplatePropertyRepresentation {
     return templated;
   }
 
-  public Optional<OptionsRepresentation> options() {
+  public Optional<Options> options() {
     return Optional.ofNullable(options);
   }
 }

@@ -1,4 +1,4 @@
-package com.cosium.hal_model;
+package com.cosium.hal_model2;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -51,7 +51,7 @@ class OptionsTest {
             .end()
             .finish();
 
-    OptionsRepresentation options =
+    Options options =
         JSON_MAPPER
             .<HalFormsBody<Void>>readValue(json, new TypeReference<>() {})
             .requireTemplate("default")
@@ -68,9 +68,9 @@ class OptionsTest {
 
     assertThat(options.selectedValues()).containsExactly("FedEx");
     assertThat(options.inline().orElseThrow())
-        .allMatch(StringInlineElementRepresentation.class::isInstance)
-        .map(StringInlineElementRepresentation.class::cast)
-        .map(StringInlineElementRepresentation::value)
+        .allMatch(StringInlineElement.class::isInstance)
+        .map(StringInlineElement.class::cast)
+        .map(StringInlineElement::value)
         .containsExactly("FedEx", "UPS", "DHL");
   }
 
@@ -120,7 +120,7 @@ class OptionsTest {
             .end()
             .finish();
 
-    OptionsRepresentation options =
+    Options options =
         JSON_MAPPER
             .<HalFormsBody<Void>>readValue(json, new TypeReference<>() {})
             .requireTemplate("default")
@@ -137,9 +137,9 @@ class OptionsTest {
 
     assertThat(options.selectedValues()).containsExactly("FedEx");
     assertThat(options.inline().orElseThrow())
-        .allMatch(MapInlineElementRepresentation.class::isInstance)
-        .map(MapInlineElementRepresentation.class::cast)
-        .map(MapInlineElementRepresentation::map)
+        .allMatch(MapInlineElement.class::isInstance)
+        .map(MapInlineElement.class::cast)
+        .map(MapInlineElement::map)
         .contains(
             Map.of("shipName", "Federal Express", "shipCode", "FedEx"),
             Map.of("shipName", "United Parcel Service", "shipCode", "UPS"),
@@ -193,7 +193,7 @@ class OptionsTest {
             .end()
             .finish();
 
-    OptionsRepresentation options =
+    Options options =
         JSON_MAPPER
             .<HalFormsBody<Void>>readValue(json, new TypeReference<>() {})
             .requireTemplate("default")
@@ -210,9 +210,9 @@ class OptionsTest {
 
     assertThat(options.selectedValues()).containsExactly("FedEx");
     assertThat(options.inline().orElseThrow())
-        .allMatch(MapInlineElementRepresentation.class::isInstance)
-        .map(MapInlineElementRepresentation.class::cast)
-        .map(MapInlineElementRepresentation::map)
+        .allMatch(MapInlineElement.class::isInstance)
+        .map(MapInlineElement.class::cast)
+        .map(MapInlineElement::map)
         .contains(
             Map.of("shipName", "Federal Express", "shipCode", "FedEx"),
             Map.of("shipName", "United Parcel Service", "shipCode", "UPS"),
@@ -254,7 +254,7 @@ class OptionsTest {
             .end()
             .finish();
 
-    OptionsRepresentation options =
+    Options options =
         JSON_MAPPER
             .<HalFormsBody<Void>>readValue(json, new TypeReference<>() {})
             .requireTemplate("default")
@@ -269,8 +269,8 @@ class OptionsTest {
     assertThat(options.valueField()).isEmpty();
 
     assertThat(options.selectedValues()).containsExactly("FedEx");
-    OptionsLinkRepresentation link = options.link().orElseThrow();
-    assertThat(link.href()).isEqualTo("http://api.examples.org/shipping-options");
+    Link link = options.link().orElseThrow();
+    assertThat(link.href().expand()).isEqualTo("http://api.examples.org/shipping-options");
     assertThat(link.templated()).isFalse();
     assertThat(link.type()).contains("application/json");
   }

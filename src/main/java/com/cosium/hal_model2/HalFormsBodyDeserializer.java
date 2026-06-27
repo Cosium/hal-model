@@ -1,4 +1,4 @@
-package com.cosium.hal_model;
+package com.cosium.hal_model2;
 
 import static java.util.Objects.requireNonNull;
 
@@ -68,14 +68,14 @@ class HalFormsBodyDeserializer extends ValueDeserializer<HalFormsBody<?>> {
     }
 
     JsonNode templates = objectNode.get("_templates");
-    Map<String, TemplateRepresentation> templateByKey;
+    Map<String, Template> templateByKey;
     if (templates == null) {
       templateByKey = Map.of();
     } else {
       MapType mapType =
           deserializationContext
               .getTypeFactory()
-              .constructMapType(Map.class, String.class, TemplateRepresentation.class);
+              .constructMapType(Map.class, String.class, Template.class);
       templateByKey =
           deserializationContext.readValue(
               createJsonParser(deserializationContext, templates), mapType);

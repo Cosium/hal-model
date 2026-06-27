@@ -1,4 +1,4 @@
-package com.cosium.hal_model;
+package com.cosium.hal_model2;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -9,10 +9,10 @@ import org.jspecify.annotations.Nullable;
 /**
  * @author Réda Housni Alaoui
  */
-public class OptionsRepresentation {
+public class Options {
 
-  private final @Nullable List<InlineElementRepresentation> inline;
-  private final @Nullable OptionsLinkRepresentation link;
+  private final @Nullable List<InlineElement> inline;
+  private final @Nullable Link link;
   private final @Nullable Long maxItems;
   private final long minItems;
   private final @Nullable String promptField;
@@ -20,9 +20,9 @@ public class OptionsRepresentation {
   private final @Nullable String valueField;
 
   @JsonCreator
-  public OptionsRepresentation(
-      @JsonProperty("inline") @Nullable List<InlineElementRepresentation> inline,
-      @JsonProperty("link") @Nullable OptionsLinkRepresentation link,
+  public Options(
+      @JsonProperty("inline") @Nullable List<InlineElement> inline,
+      @JsonProperty("link") @Nullable Link link,
       @JsonProperty("maxItems") @Nullable Long maxItems,
       @JsonProperty("minItems") @Nullable Long minItems,
       @JsonProperty("promptField") @Nullable String promptField,
@@ -37,11 +37,11 @@ public class OptionsRepresentation {
     this.valueField = valueField;
   }
 
-  public Optional<List<InlineElementRepresentation>> inline() {
+  public Optional<List<InlineElement>> inline() {
     return Optional.ofNullable(inline);
   }
 
-  public Optional<OptionsLinkRepresentation> link() {
+  public Optional<Link> link() {
     return Optional.ofNullable(link);
   }
 

@@ -1,7 +1,8 @@
-package com.cosium.hal_model;
+package com.cosium.hal_model2;
 
 import static java.util.Objects.requireNonNull;
 
+import com.damnhandy.uri.template.UriTemplate;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Optional;
@@ -10,14 +11,14 @@ import org.jspecify.annotations.Nullable;
 /**
  * @author Réda Housni Alaoui
  */
-public class OptionsLinkRepresentation {
+public class Link {
 
   private final String href;
   private final @Nullable String type;
   private final boolean templated;
 
   @JsonCreator
-  public OptionsLinkRepresentation(
+  public Link(
       @JsonProperty("href") String href,
       @JsonProperty("type") @Nullable String type,
       @JsonProperty("templated") @Nullable Boolean templated) {
@@ -26,8 +27,8 @@ public class OptionsLinkRepresentation {
     this.templated = Optional.ofNullable(templated).orElse(false);
   }
 
-  public String href() {
-    return href;
+  public UriTemplate href() {
+    return UriTemplate.fromTemplate(href);
   }
 
   public Optional<String> type() {
