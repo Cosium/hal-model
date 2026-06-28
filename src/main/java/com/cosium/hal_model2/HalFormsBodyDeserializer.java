@@ -49,11 +49,7 @@ class HalFormsBodyDeserializer extends ValueDeserializer<HalFormsBody<?>> {
           jsonParser, HalFormsBody.class, "Expected object node, got " + treeNode);
     }
 
-    Object representation =
-        deserializationContext.readValue(
-            createJsonParser(deserializationContext, objectNode), representationType);
-
-    JsonNode links = objectNode.get("_links");
+    JsonNode links = objectNode.remove("_links");
     Map<String, Link> linkByName;
     if (links == null) {
       linkByName = Map.of();
@@ -67,7 +63,7 @@ class HalFormsBodyDeserializer extends ValueDeserializer<HalFormsBody<?>> {
               createJsonParser(deserializationContext, links), mapType);
     }
 
-    JsonNode templates = objectNode.get("_templates");
+    JsonNode templates = objectNode.remove("_templates");
     Map<String, Template> templateByKey;
     if (templates == null) {
       templateByKey = Map.of();
@@ -80,6 +76,10 @@ class HalFormsBodyDeserializer extends ValueDeserializer<HalFormsBody<?>> {
           deserializationContext.readValue(
               createJsonParser(deserializationContext, templates), mapType);
     }
+
+    Object representation =
+        deserializationContext.readValue(
+            createJsonParser(deserializationContext, objectNode), representationType);
 
     return new HalFormsBody<>(representation, linkByName, templateByKey);
   }
