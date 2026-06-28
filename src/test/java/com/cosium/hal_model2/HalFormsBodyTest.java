@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
+import java.util.Map;
 import org.jspecify.annotations.Nullable;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -106,6 +107,37 @@ class HalFormsBodyTest {
 
     TemplateProperty property = template.propertyByName().get("foo");
     assertThat(property.type()).isEqualTo("text");
+  }
+
+  @Test
+  @DisplayName("The body's representation excludes HAL metadata")
+  void test3() {
+    String json =
+        JSON.std
+            .composeString()
+            .startObject()
+            .startObjectProperty("_links")
+            .startObjectProperty("self")
+            .put("href", "http://localhost/form-test:put")
+            .end()
+            .end()
+            .startObjectProperty("_templates")
+            .startObjectProperty("default")
+            .put("method", "PUT")
+            .startArrayProperty("properties")
+            .startObject()
+            .put("name", "foo")
+            .end()
+            .end()
+            .end()
+            .end()
+            .end()
+            .finish();
+
+    HalFormsBody<Map<String, Object>> halFormsBody =
+        TestJsonMapper.INSTANCE.readValue(json, new TypeReference<>() {});
+
+    assertThat(halFormsBody.representation()).isEmpty();
   }
 
   private record User(@JsonProperty("username") String username) {}
