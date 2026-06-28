@@ -9,6 +9,7 @@ import org.jspecify.annotations.Nullable;
  * @author Réda Housni Alaoui
  */
 public class HalFormsBody<T> {
+
   private final T representation;
   private final Map<String, Link> linkByName;
   private final @Nullable String selfUri;
