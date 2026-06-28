@@ -8,16 +8,12 @@ import org.jspecify.annotations.Nullable;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import tools.jackson.core.type.TypeReference;
-import tools.jackson.databind.json.JsonMapper;
 import tools.jackson.jr.ob.JSON;
 
 /**
  * @author Réda Housni Alaoui
  */
 class HalFormsBodyTest {
-
-  private static final JsonMapper JSON_MAPPER =
-      JsonMapper.builder().addModule(new HalModelJacksonModule()).build();
 
   @Test
   @DisplayName("Parse atomic value")
@@ -45,7 +41,8 @@ class HalFormsBodyTest {
             .end()
             .finish();
 
-    HalFormsBody<User> halFormsBody = JSON_MAPPER.readValue(json, new TypeReference<>() {});
+    HalFormsBody<User> halFormsBody =
+        TestJsonMapper.INSTANCE.readValue(json, new TypeReference<>() {});
     assertThat(halFormsBody.representation().username()).isEqualTo("jdoe");
     assertThat(halFormsBody.linkByName()).containsOnlyKeys("self");
     assertThat(halFormsBody.requireLink("self").href().expand())
@@ -94,7 +91,7 @@ class HalFormsBodyTest {
             .finish();
 
     HalFormsBody<EmbeddedContainer<ContentList<String>>> halFormsBody =
-        JSON_MAPPER.readValue(json, new TypeReference<>() {});
+        TestJsonMapper.INSTANCE.readValue(json, new TypeReference<>() {});
     assertThat(halFormsBody.representation().requireEmbedded().content())
         .containsExactly("element1", "element2");
     assertThat(halFormsBody.linkByName()).containsOnlyKeys("self");
