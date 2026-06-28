@@ -1,5 +1,5 @@
 [![Build Status](https://github.com/Cosium/hal-model/actions/workflows/ci.yml/badge.svg)](https://github.com/Cosium/hal-model/actions/workflows/ci.yml)
-[![Maven Central](https://img.shields.io/maven-central/v/com.cosium.hal_model/hal-model.svg)](https://central.sonatype.com/artifact/com.cosium.hal_model/hal-model)
+[![Maven Central](https://img.shields.io/maven-central/v/com.cosium.hal_model/hal-model2.svg)](https://central.sonatype.com/artifact/com.cosium.hal_model/hal-model2)
 
 # HAL Model
 
