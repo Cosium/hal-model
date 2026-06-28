@@ -5,16 +5,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.util.Map;
 import org.junit.jupiter.api.Test;
 import tools.jackson.core.type.TypeReference;
-import tools.jackson.databind.json.JsonMapper;
 import tools.jackson.jr.ob.JSON;
 
 /**
  * @author Réda Housni Alaoui
  */
 class OptionsTest {
-
-  private static final JsonMapper JSON_MAPPER =
-      JsonMapper.builder().addModule(new HalModelJacksonModule()).build();
 
   @Test
   void inlineOfStringArray() {
@@ -52,7 +48,7 @@ class OptionsTest {
             .finish();
 
     Options options =
-        JSON_MAPPER
+        TestJsonMapper.INSTANCE
             .<HalFormsBody<Void>>readValue(json, new TypeReference<>() {})
             .requireTemplate("default")
             .propertyByName()
@@ -121,7 +117,7 @@ class OptionsTest {
             .finish();
 
     Options options =
-        JSON_MAPPER
+        TestJsonMapper.INSTANCE
             .<HalFormsBody<Void>>readValue(json, new TypeReference<>() {})
             .requireTemplate("default")
             .propertyByName()
@@ -194,7 +190,7 @@ class OptionsTest {
             .finish();
 
     Options options =
-        JSON_MAPPER
+        TestJsonMapper.INSTANCE
             .<HalFormsBody<Void>>readValue(json, new TypeReference<>() {})
             .requireTemplate("default")
             .propertyByName()
@@ -255,7 +251,7 @@ class OptionsTest {
             .finish();
 
     Options options =
-        JSON_MAPPER
+        TestJsonMapper.INSTANCE
             .<HalFormsBody<Void>>readValue(json, new TypeReference<>() {})
             .requireTemplate("default")
             .propertyByName()

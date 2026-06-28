@@ -5,16 +5,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import tools.jackson.core.type.TypeReference;
-import tools.jackson.databind.json.JsonMapper;
 import tools.jackson.jr.ob.JSON;
 
 /**
  * @author Réda Housni Alaoui
  */
 class TemplateTest {
-
-  private static final JsonMapper JSON_MAPPER =
-      JsonMapper.builder().addModule(new HalModelJacksonModule()).build();
 
   @Test
   @DisplayName("Parse template title")
@@ -37,7 +33,8 @@ class TemplateTest {
             .end()
             .finish();
 
-    HalFormsBody<Void> formsBody = JSON_MAPPER.readValue(json, new TypeReference<>() {});
+    HalFormsBody<Void> formsBody =
+        TestJsonMapper.INSTANCE.readValue(json, new TypeReference<>() {});
 
     assertThat(formsBody.linkByName()).containsOnlyKeys("self");
     assertThat(formsBody.requireLink("self").href().expand())
@@ -75,7 +72,8 @@ class TemplateTest {
             .end()
             .finish();
 
-    HalFormsBody<Void> formsBody = JSON_MAPPER.readValue(json, new TypeReference<>() {});
+    HalFormsBody<Void> formsBody =
+        TestJsonMapper.INSTANCE.readValue(json, new TypeReference<>() {});
 
     assertThat(formsBody.linkByName()).containsOnlyKeys("self");
     assertThat(formsBody.requireLink("self").href().expand())
@@ -116,7 +114,8 @@ class TemplateTest {
             .end()
             .finish();
 
-    HalFormsBody<Void> formsBody = JSON_MAPPER.readValue(json, new TypeReference<>() {});
+    HalFormsBody<Void> formsBody =
+        TestJsonMapper.INSTANCE.readValue(json, new TypeReference<>() {});
 
     assertThat(formsBody.linkByName()).containsOnlyKeys("self");
     assertThat(formsBody.requireLink("self").href().expand())
@@ -157,7 +156,8 @@ class TemplateTest {
             .end()
             .finish();
 
-    HalFormsBody<Void> formsBody = JSON_MAPPER.readValue(json, new TypeReference<>() {});
+    HalFormsBody<Void> formsBody =
+        TestJsonMapper.INSTANCE.readValue(json, new TypeReference<>() {});
 
     assertThat(formsBody.linkByName()).containsOnlyKeys("self");
     assertThat(formsBody.requireLink("self").href().expand())
@@ -198,7 +198,8 @@ class TemplateTest {
             .end()
             .finish();
 
-    HalFormsBody<Void> formsBody = JSON_MAPPER.readValue(json, new TypeReference<>() {});
+    HalFormsBody<Void> formsBody =
+        TestJsonMapper.INSTANCE.readValue(json, new TypeReference<>() {});
 
     assertThat(formsBody.linkByName()).containsOnlyKeys("self");
     assertThat(formsBody.requireLink("self").href().expand())
@@ -239,7 +240,8 @@ class TemplateTest {
             .end()
             .finish();
 
-    HalFormsBody<Void> formsBody = JSON_MAPPER.readValue(json, new TypeReference<>() {});
+    HalFormsBody<Void> formsBody =
+        TestJsonMapper.INSTANCE.readValue(json, new TypeReference<>() {});
 
     assertThat(formsBody.linkByName()).containsOnlyKeys("self");
     assertThat(formsBody.requireLink("self").href().expand())
@@ -280,7 +282,8 @@ class TemplateTest {
             .end()
             .finish();
 
-    HalFormsBody<Void> formsBody = JSON_MAPPER.readValue(json, new TypeReference<>() {});
+    HalFormsBody<Void> formsBody =
+        TestJsonMapper.INSTANCE.readValue(json, new TypeReference<>() {});
 
     assertThat(formsBody.linkByName()).containsOnlyKeys("self");
     assertThat(formsBody.requireLink("self").href().expand())
@@ -321,7 +324,8 @@ class TemplateTest {
             .end()
             .finish();
 
-    HalFormsBody<Void> formsBody = JSON_MAPPER.readValue(json, new TypeReference<>() {});
+    HalFormsBody<Void> formsBody =
+        TestJsonMapper.INSTANCE.readValue(json, new TypeReference<>() {});
 
     assertThat(formsBody.linkByName()).containsOnlyKeys("self");
     assertThat(formsBody.requireLink("self").href().expand())
@@ -362,7 +366,8 @@ class TemplateTest {
             .end()
             .finish();
 
-    HalFormsBody<Void> formsBody = JSON_MAPPER.readValue(json, new TypeReference<>() {});
+    HalFormsBody<Void> formsBody =
+        TestJsonMapper.INSTANCE.readValue(json, new TypeReference<>() {});
 
     assertThat(formsBody.linkByName()).containsOnlyKeys("self");
     assertThat(formsBody.requireLink("self").href().expand())
@@ -403,7 +408,8 @@ class TemplateTest {
             .end()
             .finish();
 
-    HalFormsBody<Void> formsBody = JSON_MAPPER.readValue(json, new TypeReference<>() {});
+    HalFormsBody<Void> formsBody =
+        TestJsonMapper.INSTANCE.readValue(json, new TypeReference<>() {});
 
     assertThat(formsBody.linkByName()).containsOnlyKeys("self");
     assertThat(formsBody.requireLink("self").href().expand())
@@ -444,7 +450,8 @@ class TemplateTest {
             .end()
             .finish();
 
-    HalFormsBody<Void> formsBody = JSON_MAPPER.readValue(json, new TypeReference<>() {});
+    HalFormsBody<Void> formsBody =
+        TestJsonMapper.INSTANCE.readValue(json, new TypeReference<>() {});
 
     assertThat(formsBody.linkByName()).containsOnlyKeys("self");
     assertThat(formsBody.requireLink("self").href().expand())
@@ -485,7 +492,8 @@ class TemplateTest {
             .end()
             .finish();
 
-    HalFormsBody<Void> formsBody = JSON_MAPPER.readValue(json, new TypeReference<>() {});
+    HalFormsBody<Void> formsBody =
+        TestJsonMapper.INSTANCE.readValue(json, new TypeReference<>() {});
 
     assertThat(formsBody.linkByName()).containsOnlyKeys("self");
     assertThat(formsBody.requireLink("self").href().expand())
@@ -526,7 +534,8 @@ class TemplateTest {
             .end()
             .finish();
 
-    HalFormsBody<Void> formsBody = JSON_MAPPER.readValue(json, new TypeReference<>() {});
+    HalFormsBody<Void> formsBody =
+        TestJsonMapper.INSTANCE.readValue(json, new TypeReference<>() {});
 
     assertThat(formsBody.linkByName()).containsOnlyKeys("self");
     assertThat(formsBody.requireLink("self").href().expand())
@@ -567,7 +576,8 @@ class TemplateTest {
             .end()
             .finish();
 
-    HalFormsBody<Void> formsBody = JSON_MAPPER.readValue(json, new TypeReference<>() {});
+    HalFormsBody<Void> formsBody =
+        TestJsonMapper.INSTANCE.readValue(json, new TypeReference<>() {});
 
     assertThat(formsBody.linkByName()).containsOnlyKeys("self");
     assertThat(formsBody.requireLink("self").href().expand())
@@ -602,7 +612,8 @@ class TemplateTest {
             .end()
             .finish();
 
-    HalFormsBody<Void> formsBody = JSON_MAPPER.readValue(json, new TypeReference<>() {});
+    HalFormsBody<Void> formsBody =
+        TestJsonMapper.INSTANCE.readValue(json, new TypeReference<>() {});
 
     assertThat(formsBody.linkByName()).containsOnlyKeys("self");
     assertThat(formsBody.requireLink("self").href().expand())
@@ -634,7 +645,8 @@ class TemplateTest {
             .end()
             .finish();
 
-    HalFormsBody<Void> formsBody = JSON_MAPPER.readValue(json, new TypeReference<>() {});
+    HalFormsBody<Void> formsBody =
+        TestJsonMapper.INSTANCE.readValue(json, new TypeReference<>() {});
 
     assertThat(formsBody.linkByName()).containsOnlyKeys("self");
     assertThat(formsBody.requireLink("self").href().expand())
